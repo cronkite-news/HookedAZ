@@ -1,0 +1,24 @@
+{% comment %}
+
+To include in story: {% include e-sideimage.html image="sidebar.jpg" caption="I'm the caption. Hello. How are you." credit="Mr. Credit Side"  %}
+
+Put image in /images/
+
+Also call {% include e-floatfix.html %} in the paragraph *above* the one where you put the side element
+
+{% endcomment %}
+
+<!-- start e-sideimage -->
+</div><!-- /col -->
+<div class="col-sm-5"{% if include.moment %} id="{{ include.moment }}"{% endif %}>
+<img src="/images/{{ include.image }}" style="display:inline-block;width:100%;" />
+
+<p class="text-muted sans photo-caption"><small>{{ include.caption }}</small></p>
+
+</div>
+</div> <!-- row -->
+
+<div class="row">
+<div class="col-sm-1"></div>
+<div class="col-sm-6">
+<!-- end e-sideimage -->

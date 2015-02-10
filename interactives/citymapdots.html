@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>#map { position:absolute; top:0; bottom:0; width:100%; }</style>
+	<title>hospitals</title>
+
+	<link rel="stylesheet" href="css/leaflet.css" />
+	<script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="css/screen.css" />
+
+	<link rel="stylesheet" href="css/MarkerCluster.css" />
+	<link rel="stylesheet" href="css/MarkerCluster.Default.css" />
+	<script src="js/leaflet.markercluster-src.js"></script>
+    <script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.3/Leaflet.fullscreen.min.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.3/leaflet.fullscreen.css' rel='stylesheet' />
+    <script src="data/cityDots.js"></script>
+    
+</head>
+<body>
+
+	<div id="map"></div>
+
+	<script type="text/javascript">
+
+
+
+		var tiles = L.tileLayer('http://{s}.tile.osm.org/{z}/{x}/{y}.png', {
+			maxZoom: 18,
+		
+		});
+
+		var map = L.map('map').addLayer(tiles);
+
+		var markers = L.markerClusterGroup();
+
+		var geoJsonLayer = L.geoJson(cities, {
+			onEachFeature: function (feature, layer) {
+				var popupText = '<h4>'+feature.properties.name+'</h4><p>Overdose cases:'+feature.properties.Total+'</p>';
+				layer.bindPopup(feature.properties.Total);
+				layer.bindPopup(popupText);
+			}
+		});
+		markers.addLayer(geoJsonLayer);
+        
+		map.addLayer(markers);
+		map.fitBounds(markers.getBounds());
+		L.control.fullscreen().addTo(map);
+		map.setView([34.553122,-111.709870],7)
+	</script>
+</body>
+</html>

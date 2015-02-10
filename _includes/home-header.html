@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="initial-scale=1.0, width=device-width, user-scalable=no, maximum-scale=1" />
+    <meta name="description" content="HookedAZ: Tracking Heroin’s Hold on Arizona">
+    <meta name="author" content="Cronkite News">
+    <link rel="icon" href="/favicon.ico">
+    	<title>{{ page.title }}</title>
+		<link href="/assets/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+
+    <!-- FONT AWESOME -->
+    	<link href="/assets/css/font-awesome.min.css" rel="stylesheet">
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="/assets/js/html5shiv.min.js"></script>
+      <script src="/assets/js/respond.min.js"></script>
+    <![endif]-->
+	<link href="/assets/css/stateface.css" rel="stylesheet">
+	<link href="/assets/css/style.css" rel="stylesheet">
+	<link href='http://fonts.googleapis.com/css?family=Roboto:400,300,700,900|Roboto+Slab' rel='stylesheet' type='text/css'>
+	
+	<!--[if lte IE 8]>
+	<link rel="stylesheet" type="text/css" href="/assets/css/ie8.css" />
+<![endif]-->
+
+	<script src="/assets/js/google-analytics.js"></script>
+		<meta property="og:url" content="{{ site.url }}{{ page.url }}" /> 
+	<meta property="og:title" content="{{ page.title }}" />
+  </head>
+
+<body role="document" data-spy="scroll" data-target=".scroll-nav" data-offset="150">
+
+<!-- BEGIN SCROLLING NAV -->
+<div class="navbar navbar-fixed-top scroll-nav" role="navigation">
+	<a class="navbar-brand" href="#"><img src="/assets/logo_nav.png" /></a>
+    <div class="container">
+    <ul class="nav navbar-nav navbar-left gw-nav-items hidden-xs hidden-sm">
+		{% include navbaritems.html %}
+    </ul>
+    <ul class="nav navbar-nav navbar-right gw-nav-items hidden-xs hidden-sm">
+<li class="nav-about" style="font-weight:400;"><a href="/about/"><span class="label label-nav">About</span></a></li>
+        <li class="nav-about" style="font-weight:400;"></li>
+      </ul>
+
+      </div>
+    <a id="menu-toggle" href="#" class="btn btn-primary btn-lg toggle hidden-md hidden-lg"><i class="fa fa-bars"></i></a>
+
+    </div>
+ <!-- END SCROLLING NAV -->   
+    
+<!-- BEGIN STATIC NAV -->
+<div class="navbar navbar-default home-nav" role="navigation">
+	<a class="navbar-brand hidden-sm" href="#"><img src="/assets/logo_nav.png" /></a>
+    <div class="container">
+    <ul class="nav navbar-nav navbar-left gw-nav-items animated hinge fadeIn hidden-xs hidden-sm">
+		{% include navbaritems.html %}
+    </ul>
+    <ul class="nav navbar-nav navbar-right gw-nav-items hidden-xs hidden-sm">
+<li class="nav-about" style="font-weight:400;"><a href="/about/"><span class="label label-nav">About</span></a></li>
+        <li class="nav-about" style="font-weight:400;"></li>
+      </ul>
+       <a id="static-toggle" href="#" class="btn btn-primary btn-lg toggle hidden-lg hidden-md"><i class="fa fa-bars"></i></a>
+
+      </div>
+ <!-- Side Menu -->
+    <div id="static-wrapper">
+        <ul class="sidebar-nav text-left">
+            <a id="static-close" href="#" class="btn btn-default pull-left toggle"><i class="fa fa-times"></i></a>
+		<li class="sidebar-brand"></li>
+		{% include navbaritems.html %}
+        <li><a href="#" style="font-weight:400;">About</a></li>
+        </ul>
+    </div>
+    <!-- /Side Menu -->
+    </div>
+<!-- END STATIC NAV -->

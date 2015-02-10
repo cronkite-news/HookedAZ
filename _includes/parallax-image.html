@@ -1,0 +1,60 @@
+{% comment %}
+
+To include in story: {% include parallax-image.html img_slug="slug_here" credit="Jim Bob Sartre" %}
+
+Put image in /images/
+
+
+
+{% endcomment %}
+
+<style type="text/css">
+ @media only screen 
+and (min-device-width : 320px) 
+and (max-device-width : 480px) {
+.{{ include.img_slug }} {background:url(/assets/img-res/{{ include.img_slug }}/{{ include.img_slug }}-768.jpg) no-repeat center center fixed;   
+-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;}
+}
+
+@media only screen and (max-width:480px) {
+.{{ include.img_slug }} {background:url(/assets/img-res/{{ include.img_slug }}/{{ include.img_slug }}-768.jpg) no-repeat center center fixed;   
+-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;}
+}
+
+@media only screen and (min-width:480px) {
+.{{ include.img_slug }} {background:url(/assets/img-res/{{ include.img_slug }}/{{ include.img_slug }}-1200.jpg) no-repeat center center fixed;
+-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;}
+}
+
+@media only screen and (min-width:1200px) {
+.{{ include.img_slug }} {background:url(/assets/img-res/{{ include.img_slug }}/{{ include.img_slug }}-1600.jpg) no-repeat center center fixed;   
+-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;}
+}
+
+@media only screen and (min-width:1600px) {
+.{{ include.img_slug }} {background:url(/assets/img-res/{{ include.img_slug }}/{{ include.img_slug }}-2560.jpg) no-repeat center center fixed;
+-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;}
+}
+</style>
+
+
+<div class="{{ include.img_slug }} phototron jumbotron"></div>
+
+<div class="container story-body" role="main">
+	<p class="text-right text-muted photo-byline"><span class="bolded">PHOTO:</span> {{ include.credit }}</p>
+</div>

@@ -1,0 +1,30 @@
+{% comment %}
+
+{% include e-sidevideo.html video="103019451" caption="caption here optional" credit="Mr. Credit" paneltitle="TITLE HERE REQUIRED"  %}
+
+{% include e-floatfix.html %} in the paragraph *above* the one where you put the side element
+
+{% endcomment %}
+<!-- e-sidevideo -->
+</div><!-- /col -->
+
+<div class="col-sm-5"><div class="panel panel-mezz">
+  <div class="panel-heading"{% if include.moment %} id="{{ include.moment }}"{% endif %}>
+    <h3 class="panel-title text-center">{{ include.paneltitle }}</h3>
+  </div>
+  <div class="panel-body nopanelpadd">
+       		
+<div class="embed-responsive embed-responsive-16by9">  
+  <iframe class="embed-responsive-item" src="//player.vimeo.com/video/{{ include.video }}?title=0&amp;byline=0&amp;portrait=0&amp;color=a0181d" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe></div></div> </div>
+{{ if include.caption }}
+<p class="text-muted sans photo-caption"><small>{{ include.caption }}</small></p>
+{{ endif }}
+
+
+</div>
+</div><!-- /row -->
+
+<div class="row">
+<div class="col-sm-1"></div>
+<div class="col-sm-6">
+<!-- end e-sidevideo -->

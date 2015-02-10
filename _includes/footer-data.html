@@ -1,0 +1,98 @@
+<script src="/interactives/assets/js/jquery.responsiveiframe.js"></script>
+<script>
+  //;(function($){          
+    //  $(function(){
+      //  $('.npr-responsive').responsiveIframe({ xdomain: '*'});
+     // });        
+  //})(jQuery);
+</script>
+<script>
+function adjustIframes()
+{
+  $('iframe').each(function(){
+    var
+    $this       = $(this),
+    proportion  = $this.data( 'proportion' ),
+    w           = $this.attr('width'),
+    actual_w    = $this.width();
+    
+    if ( ! proportion )
+    {
+        proportion = $this.attr('height') / w;
+        $this.data( 'proportion', proportion );
+    }
+  
+    if ( actual_w != w )
+    {
+        $this.css( 'height', Math.round( actual_w * proportion ) + 'px' );
+    }
+  });
+}
+$(window).on('resize load',adjustIframes);
+</script>
+<!-- Custom JavaScript for the Side Menu and Smooth Scrolling and Tooltip -->
+    <script>
+    
+    
+    
+    
+    $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#static-wrapper").toggleClass("active");
+    });
+    $("#static-close").click(function(e) {
+        e.preventDefault();
+        $("#static-wrapper").toggleClass("active");
+    });
+    </script>
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#static-wrapper").toggleClass("active");
+    });
+    $("#static-toggle").click(function(e) {
+        e.preventDefault();
+        $("#static-wrapper").toggleClass("active");
+    });
+     $('.sidebar-nav li a').click(function(){
+    $("#static-wrapper").toggleClass("active");
+});
+    	
+$('.fa-tip').tooltip();
+
+    </script>
+
+<script>
+(function ($) {
+  $(document).ready(function(){
+
+
+    // hide .scroll-nav first
+    $(".scroll-nav").hide();
+
+    // fade in .scroll-nav
+    $(function () {
+        $(window).scroll(function () {
+
+            // At what pixel should we show the nav
+            if ($(this).scrollTop() > 110) {
+                $('.scroll-nav').fadeIn(200);
+            } else {
+                $('.scroll-nav').fadeOut(75);
+            }
+        });
+    });
+
+});
+  }(jQuery));
+  
+  $(function () {
+    if(location.hash != '') {
+   		var activeTab = $('[href=' + location.hash + ']');
+   		activeTab && activeTab.tab('show');
+   	}
+});
+</script>
+
+</body>
+</html>	

@@ -1,0 +1,81 @@
+
+
+<!-- Custom JavaScript for the Side Menu and Smooth Scrolling and Tooltip -->
+    <script>
+    $("#menu-close").click(function(e) {
+        e.preventDefault();
+        $("#static-wrapper").toggleClass("active");
+    });
+    $("#static-close").click(function(e) {
+        e.preventDefault();
+        $("#static-wrapper").toggleClass("active");
+    });
+    </script>
+    <script>
+    $("#menu-toggle").click(function(e) {
+        e.preventDefault();
+        $("#static-wrapper").toggleClass("active");
+    });
+    $("#static-toggle").click(function(e) {
+        e.preventDefault();
+        $("#static-wrapper").toggleClass("active");
+    });
+    
+     $('.sidebar-nav li a').click(function(){
+    $("#static-wrapper").toggleClass("active");
+});
+    
+    	
+$('.fa-tip').tooltip();
+
+    </script>
+    
+    <!-- not on data page -->
+    <script>
+    $(function() {
+        $('a[href*=#]:not([href=#])').click(function() {
+            if (location.pathname.replace(/^\//, '') == this.pathname.replace(/^\//, '') || location.hostname == this.hostname) {
+
+                var target = $(this.hash);
+                target = target.length ? target : $('[name=' + this.hash.slice(1) + ']');
+                if (target.length) {
+                    $('html,body').animate({
+                        scrollTop: target.offset().top-55
+                    }, 625);
+                    return false;
+                }
+            }
+        });
+    });
+
+    </script>
+    <!-- end not on data page -->
+<script>
+(function ($) {
+  $(document).ready(function(){
+
+
+    // hide .scroll-nav first
+    $(".scroll-nav").hide();
+
+    // fade in .scroll-nav
+    $(function () {
+        $(window).scroll(function () {
+
+            // At what pixel should we show the nav
+            if ($(this).scrollTop() > 110) {
+                $('.scroll-nav').fadeIn(200);
+            } else {
+                $('.scroll-nav').fadeOut(75);
+            }
+        });
+    });
+
+});
+  }(jQuery));
+</script>
+
+    
+
+</body>
+</html>	

@@ -1,0 +1,28 @@
+{% comment %}
+To include in story: {% include e-bigimage.html image="storydev_2.jpg" caption="I am the caption" %}
+
+Put images in /images/
+
+{% endcomment %}
+
+<!-- e-bigimage -->
+</div> <!-- row -->
+<div class="row padd">
+<div class="col-sm-10"{% if include.moment %} id="{{ include.moment }}"{% endif %}>
+<img src="/images/{{ include.image}}" class="img-responsive" />
+
+<div class="row">
+<div class="col-sm-10">
+	<p class="text-left sans text-muted noindent photo-big-caption"><small>{{ include.caption }}</small></p>
+</div>
+
+</div>
+</div>
+
+</div>
+</div>
+
+<div class="row padd">
+<div class="col-sm-1"></div>
+<div class="col-sm-6">
+<!-- end e-bigimage -->

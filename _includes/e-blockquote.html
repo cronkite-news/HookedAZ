@@ -1,0 +1,11 @@
+{% comment %}
+To include in story: {% include e-blockquote.html quote="Cotton candy marzipan liquorice. Lemon drops caramels bonbon icing applicake jelly. Pudding topping applicake chocolate cake." footer="Someone famous in Source Title" %}
+
+footer is optional.
+
+{% endcomment %}
+
+<blockquote{% if include.moment %} id="{{ include.moment }}"{% endif %}>
+  <p>{{ include.quote }}</p>
+  {% if include.footer %}<footer>{{ include.footer }}</footer>{% endif %}
+</blockquote>

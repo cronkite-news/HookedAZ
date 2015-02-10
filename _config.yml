@@ -1,0 +1,15 @@
+# Build settings
+markdown: redcarpet
+permalinks: pretty
+
+collections:
+  stories:
+    output: true
+
+sass:
+  style: :compressed
+  sass_dir: _sass
+  
+exclude: ['README.md']
+
+url: "localhost:4000"

@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+<head>
+<script src="js/d3.min.js"></script>
+<script src="js/c3.min.js"></script>
+<script src="js/jquery.min.js"></script>
+<style>
+body{
+	font-family:'Roboto', 'Proxima Nova','Helvetica Neue', Helvetica, sans-serif;
+}
+  button{
+	  width:100px;
+	  }
+
+.tag {
+	padding:10px;
+	background-color:#e4d4c4;
+	cursor:pointer;
+	color: #640527;
+	text-transform: uppercase;
+	font-weight: 500
+	}
+.tag:hover{
+	background-color:#FFEDDB;
+	}
+</style>
+<link rel="stylesheet" href="css/c3.css">
+<meta charset="UTF-8">
+<title>OD Data Vis</title>
+</head>
+
+<body>
+    <div style="margin-top:100px">
+      <span class ="tag" id = "race">View By Race</span>
+      <span class ="tag" id = "gender">View By Gender</span>
+   </div>
+  <div id = "chart" style = "margin-top:100px"></div>
+
+  <script>
+    var data = {
+		year:["year",2009,2010,2011,2012,2013],
+		total:["Total",277,315,413,481,561],
+		female: ["Female",63,56,114,132,171],
+		male:["Male",214,259,299,349,390],
+		latino:["Hispanic or Latino",53,53,58,82,90],
+		white:["White",203,240,329,375,438],
+		other:["Other",21,22,25,24,33]
+		};
+   
+    var chart = c3.generate({
+    bindto: '#chart',
+    data: {
+      columns:[data.year,data.latino,data.white,data.other,data.total],
+	  x:"year",
+	  type:"bar",
+    },
+	color: {
+        pattern: ['#BF3F4A', '#4D5373', '#8AA6A6', '#F2C777', '#D97059', '#98df8a', '#d62728', '#ff9896', '#9467bd', '#c5b0d5', '#8c564b', '#c49c94', '#e377c2', '#f7b6d2', '#7f7f7f', '#c7c7c7', '#bcbd22', '#dbdb8d', '#17becf', '#9edae5']
+    },
+    axis: {
+        x: {
+            label: 'Year'
+        },
+        y: {
+            label: 'Number of Heroin ER Cases'
+        },
+    } 
+	
+});
+
+
+	$("#gender").click(function(){
+		chart.load({
+			
+			unload:["White","Hispanic or Latino","Other",],
+			columns:[data.male,data.female],
+			
+			})
+
+		})
+    $("#race").click(function(){
+		chart.load({
+			unload:["Male","Female"],
+            columns:[data.latino, data.white, data.other, data.total],
+			
+		})
+		})
+		
+
+		
+  </script>
+</body>
+</html>

@@ -1,0 +1,173 @@
+
+
+/* question styles */
+.panel-quiz {
+	margin-top:25px;
+	border:0;
+	background-color:transparent;
+}
+
+.panel-quiz .panel-heading {
+	font-size:18px;
+	min-height:40px;
+	padding:0px;
+	background-color:transparent;
+	font-weight:bold;
+	line-height:1.5em;
+}
+
+.label-default.label-quiz {
+	background-color: #59001E;
+	font-family: 'Roboto', sans-serif;
+	padding: 8px;
+    margin:0 15px 75px 15px;
+	font-weight: 700;
+	font-size:25px;
+	color: #fff;
+	text-align: center;
+}
+
+.panel-quiz .panel-body {
+	margin-left:60px;
+}
+
+.panel-quiz .panel-title {
+	font-size:20px;
+	line-height:28px;
+	padding-bottom:15px;
+}
+
+.panel-quiz .panel-choice {
+	font-family: 'Roboto', sans-serif;
+	font-size:22px;
+	line-height:28px;
+}
+
+
+.fa-circle-o {
+	font-size:28px;
+	cursor:pointer;
+	line-height:5px;
+	margin-bottom:10px;
+	color:#959595;
+}
+
+.fa-circle-o:hover {
+	color:#59001E;
+}
+
+.fa-check-circle {
+	font-size:28px;
+	cursor:pointer;
+	line-height:5px;
+	margin-bottom:10px;
+	color:#59001E;
+}
+
+/*
+.fa-info-circle {
+	position:absolute;
+	top:210px;
+	left:405px;
+}
+*/
+
+.fa-check {
+	color:#15AB38;
+}
+
+.fa-times {
+	color:#AB151C;
+}
+
+/* button styles */
+.btn {
+	font-family: 'Roboto', sans-serif;
+	background-color:#59001E;
+	border-color:#59001E;
+}
+
+.btn-quiz {
+	background-color:#59001E;
+	color:#ffffff;
+	font-weight:700;
+	border-color:#444444;
+}
+
+.btn-container {
+	margin:0 auto;
+}
+
+.panel-quiz .panel-body i {
+	font-size:2em;
+}
+
+.btn-quiz:hover, .btn-quiz:active   {
+	background-color:#333;
+	border-color:#59001E;
+	color:#ffffff;
+}
+
+#hidden {
+	display:none;
+}
+
+/* answer styles */
+.alert-quiz {
+	background-color: #c9c9c9;
+	border-color:#000000;
+	width:100%;
+	margin-top:30px;
+}
+
+
+#answer-text1 {
+	font-family:'Roboto', sans-serif;
+	font-weight:bold;
+	font-size:25px;
+	padding-left:20px;
+	margin-top:40px;
+	line-height:28px;
+}
+
+#answer-text2 {
+	font-family:'Roboto', sans-serif;
+	font-weight:bold;
+	font-size:25px;
+	padding-left:20px;
+	padding-bottom:40px;
+	line-height:28px;
+}
+
+.quiz-row {
+	margin: 0 auto;
+}
+
+.col-quiz {
+	padding-right:35px;
+}
+
+.answers-share {
+	font-family:'Roboto', sans-serif;
+	font-weight:bold;
+	color:#59001E;
+	font-size:17px;
+	margin-left:45px;
+	text-align:center;
+	margin-bottom:20px;
+}
+
+.answers-share a {
+padding-right:10px;
+}
+
+#more-explanation {
+	font-size:19px;
+	font-family:'Roboto', sans-serif;
+	padding-left:20px;
+	line-height:28px;
+}
+
+.credits {
+	font-weight:bold;
+}

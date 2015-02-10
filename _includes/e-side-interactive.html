@@ -1,0 +1,22 @@
+{% comment %}
+
+To include in story: {% include e-side-interactive.html path="public_carry_map.html" height="1400" %}
+
+
+Also call {% include e-floatfix.html %} in the paragraph *above* the one where you put the side element
+
+{% endcomment %}
+
+<!-- start e-side-interactive -->
+</div><!-- /col -->
+<div class="col-sm-5"{% if include.moment %} id="{{ include.moment }}"{% endif %}>
+
+<iframe class="embed-responsive-item" src="/interactives/{{ include.path }}" style="width:100%; height: {{ include.height }}px; border:none;"></iframe>
+
+</div>
+</div> <!-- row -->
+
+<div class="row">
+<div class="col-sm-1"></div>
+<div class="col-sm-6">
+<!-- end e-sideimage -->

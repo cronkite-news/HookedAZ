@@ -1,0 +1,87 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>Galleria</title>
+		    <script src="/assets/js/jquery.min.js"></script>
+		<script src="/assets/js/galleria-1.4.2.min.js"></script>
+		<link href="/slideshows/-style.css" rel="stylesheet">
+	</head>
+
+<body>
+
+<style type="text/css">
+@media (min-width: 768px) {
+	.gallery {
+		height: 600px;
+	}
+	
+}
+
+@media (max-width: 767px) {
+	.gallery {
+		height:370px;
+	}
+
+}
+@media (min-width: 992px) {
+	.gallery {
+		height: 670px;
+	}
+}
+@media (min-width: 1200px) {
+	.gallery {
+		height: 770px;
+	}
+}                 
+</style>
+
+
+<div class="gallery"></div>
+<!-- <div class="gallery-caption caption"></div> -->
+<p class="gallerycaption"></p>
+<script>
+    $.getJSON('/slideshows/rehab/rehab.json', function(data) {
+		Galleria.run('.gallery', {
+			dataSource: data
+		});
+		Galleria.ready(function() {
+			console.log("in galleria ready");
+			var gallery = this, data;
+			this.bind('image', function(e) {
+			data = e.galleriaData;
+			$('.gallerycaption').html( data.description );
+		});
+		
+	});
+			Galleria.ready(function(options) {
+			var galleria = this;
+			galleria.bind('fullscreen_enter', function(e) {
+				$('.galleria-info-description').css('display','inline');
+			});
+		});
+		Galleria.configure({
+		_showFullscreen: false,
+		_showPopout: false
+	});
+
+		
+Galleria.ready(function(options) {
+			var galleria = this;
+			galleria.bind('fullscreen_exit', function(e) {
+				$('.galleria-info-description').css('display','none');
+			});
+		});
+	
+	
+	
+	}).fail (function() {
+		console.log("JSON gallery load failed.");
+	});
+</script>
+
+		<script>
+			Galleria.loadTheme('/classic/galleria.classic.min.js');
+    </script>
+</body<

@@ -1,0 +1,70 @@
+{% comment %}
+
+To include in story: {% include e-jumbotron.html img_slug="slug_here" credit="Jim Bob Sartre" %}
+
+Put image in /images/
+
+{% endcomment %}
+
+
+</div>
+</div><!-- /row -->
+</div><!-- /container -->
+
+{% if include.moment %}
+<section id="{{ include.moment }}" style="width:100%;">
+{% endif %}
+{% unless include.moment %}
+<section>
+{% endunless %}
+
+
+<style type="text/css">
+
+
+@media only screen and (max-width:480px) {
+.{{ include.img_slug }} {
+background: url(/phototron-hooked/{{ include.img_slug }}/{{ include.img_slug }}-768.jpg) no-repeat center center fixed;   -webkit-background-size: cover;
+ background-attachment: scroll;
+        /* default height landscape*/
+        height: 480px;
+        width:100%;
+  }
+}
+
+@media only screen and (min-width:480px) {
+.{{ include.img_slug }} {background:url(/phototron-hooked/{{ include.img_slug }}/{{ include.img_slug }}-1200.jpg) no-repeat center center fixed;   -webkit-background-size: cover;
+ background-attachment: scroll;
+        /* default height landscape*/
+        height: 480px;
+        width:100%;
+        }
+}
+
+@media only screen and (min-width:1200px) {
+.{{ include.img_slug }} {background:url(/phototron-hooked/{{ include.img_slug }}/{{ include.img_slug }}-1600.jpg) no-repeat center center fixed;   
+-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;}
+}
+
+@media only screen and (min-width:1600px) {
+.{{ include.img_slug }} {background:url(/phototron-hooked/{{ include.img_slug }}/{{ include.img_slug }}-2560.jpg) no-repeat center center fixed;
+-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;}
+}
+</style>
+
+
+<div class="{{ include.img_slug }} phototron jumbotron "></div>
+</section>
+<div class="container story-body" role="main">
+	{% if include.credit %}
+	<p class="text-right text-muted photo-byline"><span class="bolded">PHOTO:</span> {{ include.credit }} / Cronkite News</p>
+	{% endif %}
+<div class="row">
+<div class="col-sm-1"></div>
+<div class="col-sm-6">

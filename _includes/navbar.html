@@ -1,0 +1,40 @@
+<!-- BEGIN SCROLLING NAV -->
+<div class="navbar navbar-fixed-top scroll-nav" role="navigation">
+	<a class="navbar-brand" href="/"><img src="/assets/logo_nav.png" /></a>
+    <div class="container">
+    <div class="navbar-header">
+              <h4 class="navbar-text hidden-xs hidden-sm"><a href="#top">{{ page.title }}</a></h4>
+    </div>
+
+      </div>
+      <!-- Side Menu -->
+    <a id="menu-toggle" href="#" class="btn btn-primary btn-lg toggle"><i class="fa fa-bars"></i></a>
+   
+    </div>
+ <!-- END SCROLLING NAV -->   
+    
+<!-- BEGIN STATIC NAV -->
+<div class="navbar navbar-default home-nav" role="navigation">
+	<a class="navbar-brand" href="/"><img src="/assets/logo_nav.png" /></a>
+    <div class="container">
+    <ul class="nav navbar-nav navbar-left gw-nav-items hidden-xs hidden-sm">
+         {% include navbaritems-story.html %}
+    </ul>
+    <ul class="nav navbar-nav navbar-right gw-nav-items hidden-xs hidden-sm">
+<li class="nav-about" style="font-weight:400;"><a href="/about/"><span class="label label-nav">About</span></a></li>
+      </ul>
+       <a id="static-toggle" href="#" class="btn btn-primary btn-lg toggle hidden-lg hidden-md"><i class="fa fa-bars"></i></a>
+
+      </div>
+ <!-- Side Menu -->
+    <div id="static-wrapper">
+        <ul class="sidebar-nav text-left">
+            <a id="static-close" href="#" class="btn btn-default pull-left toggle"><i class="fa fa-times"></i></a>
+		<li class="sidebar-brand"> </li>
+         {% include navbaritems-story.html %}
+			 <li><a href="/about/" style="font-weight:400;">About</a></li>
+        </ul>
+    </div>
+    <!-- /Side Menu -->
+    </div>
+<!-- END STATIC NAV -->

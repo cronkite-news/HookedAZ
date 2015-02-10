@@ -1,0 +1,93 @@
+{% if page.jumbo %}
+<!-- story.html -->
+<style type="text/css">
+@media only screen and (max-width:480px) {
+.{{ page.jumbo }} {
+background: url(/phototron-hooked/{{ page.jumbo }}/{{ page.jumbo }}-768.jpg) no-repeat center center fixed;   -webkit-background-size: cover;
+ background-attachment: scroll;
+        /* default height landscape*/
+        height: 480px;
+        width:100%;
+  }
+}
+
+@media only screen and (min-width:480px) {
+.{{ page.jumbo }} {background:url(/phototron-hooked/{{ page.jumbo }}/{{ page.jumbo }}-1200.jpg) no-repeat center center fixed;   -webkit-background-size: cover;
+ background-attachment: scroll;
+        /* default height landscape*/
+        height: 480px;
+        width:100%;
+        }
+}
+
+@media only screen and (min-width:1200px) {
+.{{ page.jumbo }} {background:url(/phototron-hooked/{{ page.jumbo }}/{{ page.jumbo }}-1600.jpg) no-repeat center center fixed;   
+-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;}
+}
+
+@media only screen and (min-width:1600px) {
+.{{ page.jumbo }} {background:url(/phototron-hooked/{{ page.jumbo }}/{{ page.jumbo }}-2560.jpg) no-repeat center center fixed;
+-webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;}
+}
+</style>
+
+	<div class="phototron jumbotron {{ page.jumbo }}">
+	</div>
+</div>
+<div class="container story-body top" role="main">
+<p class="text-right text-muted photo-byline"><span class="bolded">PHOTO:</span> {{ page.jumbocredit }} / Cronkite News</p>
+
+
+{% endif %}
+{% unless page.jumbo %}
+<div class="container story-body top" role="main">
+{% if page.topvideo %}
+<div class="row" style="padding-bottom:15px;">
+<div class="col-sm-10 col-sm-offset-1">
+<div class="embed-responsive embed-responsive-16by9 embed-glow">  
+  <iframe class="embed-responsive-item" src="//player.vimeo.com/video/{{ page.topvideo }}?title=0&amp;byline=0&amp;portrait=0&amp;color=a0181d" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+  
+</div>
+</div>
+</div>
+{% endif %}
+
+{% endunless %}
+
+<div class="row">
+			<div class="col-sm-2 col-lg-2"></div>
+			<div class="col-sm-5 col-sm-offset-5 col-lg-3 col-lg-offset-7 text-center">
+  				<span><a href="https://www.facebook.com/sharer/sharer.php?u={{ site.url }}{{ page.url }}"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x btn-fb"></i><i class="fa fa-facebook fa-stack-1x fa-inverse"></i></span></a></span>
+  				<span><a href="https://twitter.com/share?url={{ site.url }}{{ page.url }}&text={{ page.title }}" target="_blank"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x btn-twit"></i><i class="fa fa-twitter fa-stack-1x fa-inverse"></i></span></a></span>
+  				<span><a href="mailto:?body=This story is from HookedAZ: Tracking Heroin’s Hold on Arizona {{ site.url }}{{ page.url }}&subject=Check out this story from Cronkite News: {{ page.title }}"><span class="fa-stack fa-lg"><i class="fa fa-circle fa-stack-2x btn-email"></i><i class="fa fa-envelope fa-stack-1x fa-inverse"></i></span></a></span>  		
+</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-9 col-sm-offset-1 story-headline">
+  				
+		<h1 class="storyPage-headline">{{ page.title }}</h1>
+		</div>
+		</div>
+		<hr class="hrbar" />
+<div class="row byline-row">
+	<div class="col-sm-8 col-sm-offset-1 story-headline">
+		<h5 class="byline"><span class="names">By {{ page.credit }} | Cronkite News</span></h5>
+		{% if page.dateline %}
+		<h5 class="dateline">{{ page.dateline }}</h5>
+		{% endif %}
+	</div>
+	<div class="col-sm-3 text-center meta">
+	<span class="sans date">{{ page.date }}</span>
+	</div>
+</div>
+
+<div class="row start">
+<div class="col-sm-1"></div>
+<div class="col-sm-6">

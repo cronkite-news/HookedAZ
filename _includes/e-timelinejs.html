@@ -1,0 +1,30 @@
+{% comment %}
+
+To include: {% include e-timelinejs.html url="http://knightcdn" caption="I am the caption for the video" credit="Mr. Credit" %}
+
+{% endcomment %}
+<!-- BEGIN e-interactive -->
+</div><!-- /col -->
+</div><!-- /row -->
+<div class="row padd">
+<div class="col-sm-12"{% if include.moment %} id="{{ include.moment }}"{% endif %}>
+
+<iframe class="embed-responsive-item" src="{{ include.url }}" style="width:100%; height: 650px; border:none;"></iframe>
+  
+<!--   height:525px; -->
+<div class="row">
+<div class="col-sm-7">
+	<p class="text-left sans text-muted noindent photo-caption"><small>{{ include.caption }}.</small></p>
+</div>
+<div class="col-sm-5">
+<p class="text-right text-muted photo-byline"><span class="bolded">CREDIT:</span> {{ include.credit }} / News21</p>
+</div>
+</div>
+</div>
+</div>
+<div class="row padd">
+<div class="col-sm-1"></div>
+<div class="col-sm-6">
+
+
+<!-- end e-interactive -->

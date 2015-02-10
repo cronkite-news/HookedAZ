@@ -1,0 +1,172 @@
+<!doctype html>
+<html>
+<head>
+<style>
+ body { margin:0; padding:0; }
+ #county { position:absolute; top:0; bottom:0; width:100%; }
+.info {
+    padding: 10px 20px;
+    font: 14px/16px Arial, Helvetica, sans-serif;
+    background: white;
+    background: rgba(255,255,255,0.8);
+    box-shadow: 0 0 15px rgba(0,0,0,0.2);
+    border-radius: 5px;
+}
+.info h4 {
+    margin: 5px 5px 5px;
+    color: #777;
+}
+.legend {
+    line-height: 18px;
+    color: #555;
+}
+.legend i {
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+}
+</style>
+<link rel="stylesheet" href="css/leaflet.css">
+<meta charset="UTF-8">
+<title>counties</title>
+</head>
+
+<body>
+<div id="county"></div>
+<script src="js/leaflet.js"></script>
+<script src="data/az1.js"></script>
+<script src='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.3/Leaflet.fullscreen.min.js'></script>
+<link href='https://api.tiles.mapbox.com/mapbox.js/plugins/leaflet-fullscreen/v0.0.3/leaflet.fullscreen.css' rel='stylesheet' />
+<script>
+
+
+		var map = L.map('county').setView([34.553122,-111.709870],7);
+
+		L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+			maxZoom: 18,
+		}).addTo(map);
+
+
+		// control that shows state info on hover
+		var info = L.control();
+
+		info.onAdd = function (map) {
+			this._div = L.DomUtil.create('div', 'info');
+			this.update();
+			return this._div;
+		};
+
+		info.update = function (props) {
+			this._div.innerHTML = '<h4>Overdose Cases</h4>' +  (props ?
+				'<b>' + props.name + '</b><br />' + props.Overdose + ' cases'
+				: 'Hover over a county');
+		};
+
+		info.addTo(map);
+
+
+		// get color depending on population density value
+		function getColor(d) {
+			return d > 1200 ? '#800026' :
+			       d > 960  ? '#BD0026' :
+			       d > 480  ? '#E31A1C' :
+			       d > 240  ? '#FC4E2A' :
+			       d > 120   ? '#FD8D3C' :
+			       d > 60   ? '#FEB24C' :
+			       d > 30  ? '#FED976' :
+			                  '#FFEDA0';
+		}
+
+		function style(feature) {
+			return {
+				weight: 1,
+				opacity: 1,
+				color: 'black',
+				dashArray: '3',
+				fillOpacity: 0.7,
+				fillColor: getColor(feature.properties.hidden)
+			};
+		}
+
+		function highlightFeature(e) {
+			var layer = e.target;
+
+			layer.setStyle({
+				weight: 2,
+				color: '#666',
+				dashArray: '',
+				fillOpacity: 0.7
+			});
+
+			if (!L.Browser.ie && !L.Browser.opera) {
+				layer.bringToFront();
+			}
+
+			info.update(layer.feature.properties);
+		}
+
+		var geojson;
+
+		function resetHighlight(e) {
+			geojson.resetStyle(e.target);
+			info.update();
+		}
+
+		function zoomToFeature(e) {
+			map.fitBounds(e.target.getBounds());
+		}
+
+		function onEachFeature(feature, layer) {
+			layer.on({
+				mouseover: highlightFeature,
+				mouseout: resetHighlight,
+				click: zoomToFeature
+			});
+		}
+
+		geojson = L.geoJson(az, {
+			style: style,
+			onEachFeature: onEachFeature
+		}).addTo(map);
+
+
+
+		var legend = L.control({position: 'bottomright'});
+
+		legend.onAdd = function (map) {
+
+			var div = L.DomUtil.create('div', 'info legend'),
+				grades = [0,30,60,120,240,480,960,1200],
+				labels = [],
+				from, to;
+
+			for (var i = 0; i < grades.length; i++) {
+				from = grades[i];
+				to = grades[i + 1];
+
+				labels.push(
+					'<i style="background:' + getColor(from + 1) + '"></i> ' +
+					from + (to ? '&ndash;' + to : '+'));
+			}
+
+			div.innerHTML = labels.join('<br>');
+			return div;
+		};
+		var geoJsonLayer = L.geoJson(az, {
+			onEachFeature: function (feature, layer) {
+				var popupText = '<h4>'+feature.properties.name+'</h4><p>Overdose cases:'+feature.properties.Overdose+'</p>';
+				layer.bindPopup(feature.properties.Overdose);
+				layer.bindPopup(popupText);
+			}
+		});
+		markers.addLayer(geoJsonLayer);
+
+		legend.addTo(map);
+		L.control.fullscreen().addTo(map);
+
+	
+</script>
+</body>
+</html>
